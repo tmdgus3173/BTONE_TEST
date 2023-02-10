@@ -57,8 +57,7 @@ public class FOR01 {
 					//첫번째 dan에서 통과하면 위 문구가 출력되고 아래 for문으로 이동함.
 				for(int gugu=2; gugu<10; gugu++ ){
 					System.out.println(dan + " * " + gugu + " = " + dan * gugu);
-					//그리고 두번째 구구에서 통과되면 위 문구가 반복되고 끝나면 아래 dan 끝이 나오고 첫번째 for문으로 돌아감
-					
+					//그리고 두번째 구구에서 통과되면 위 문구가 반복되고 끝나면 아래 dan 끝이 나오고 첫번째 for문으로 돌아감	
 				}
 				System.out.println(">> "+dan+"단 끝");
 				if(dan!=9) {
