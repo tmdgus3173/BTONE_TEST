@@ -1,14 +1,15 @@
-package test;
+package hello;
 
 import java.util.Scanner;
 
-public class bankNum_test {
+public class bankNum {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
 		String fourStar = "";
 		String maskingNum = "";
+		
 		//이게 계좌번호의 중간이 될 즉 place를 통해 ★이 될 것입니다.
 		
 		
@@ -17,15 +18,15 @@ public class bankNum_test {
 		
 		String num = scanner.nextLine();
 		
-		
-		
-		
+		//String lastNum = num.substring(8);
+		//번호를 입력받고 아래로 내려가던 중 (8)에서 이미 8자리가 아니게 되기때문에 다음단계인 if까지 가질 못한다.
+		//그렇기 때문에 에러가 발생했던 것이다.
 		
 		if(num.length() < 5) {
 			maskingNum = num.substring(num.length()-1);
 			//4자 이하 마스킹은 잘 돌아간다.
 		}
-		else if(num.length() > 4 && num.length() < 9) {
+		else if(4 < num.length()&& num.length() < 9) {
 			maskingNum = num.substring(4, num.length());
 			//중간의 번위가 4번부터 문자열 끝까지
 		}
@@ -46,14 +47,10 @@ public class bankNum_test {
 		if(num.length() < 5) {
 			num = num.substring(0, num.length()-1) + maskingNum.replace(maskingNum, masking); 
 			//끝에 한자리만 넣는거니 0 ~ 길이 -1 나머지는 다 마스킹
-		}
-		
-		else if(num.length() > 4 && num.length() < 9) {
+		} else if(4 < num.length()&& num.length() < 9) {
 			num = num.substring(0, 4) + maskingNum.replace(maskingNum, masking);
 			//0~4까지만 가지고 있고 나머지는 전부 마스킹처리
-		}
-		
-		else {
+		} else {
 			String lastNum = num.substring(8);
 			//끝에 올 문자열을 따로 지정했다.
 			num = num.substring(0, 4) + fourStar + lastNum;
