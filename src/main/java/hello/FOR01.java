@@ -23,7 +23,7 @@ public class FOR01 {
 //이건 선언을 해도 되고 안해도 된다. 
 //그런데 이게 좀 더 보기 좋아보임.
 //저 dan에 어떤 숫자가 들어가도 결과가 바로 나오기 때문이다.
-		for(int gugu=1; gugu<10; gugu++) {
+		for(int gugu = 1; gugu < 10; gugu++) {
 			System.out.println(dan + " * " + gugu + " = " + dan * gugu);
 		}
 		
@@ -34,9 +34,9 @@ public class FOR01 {
 // 2.		
 //		System.out.println(1+2+3+4+5+6+7+8+9+10);
 		
-		int sum=0;
+		int sum = 0;
 		//우선 기본값으로 모든 수의 합을 넣은 변수를 지정해주자.
-		for(int num=1; num<11; num++) {
+		for(int num = 1; num < 11; num++) {
 			sum +=num;
 			
 			//누적합을 써야함
@@ -52,7 +52,7 @@ public class FOR01 {
 	 //dan = 2; 
 	 //위에서 썼던 단수를 재할당 해줍시다.
 		
-			for(dan=2; dan<10; dan++) {
+			for(dan = 2; dan < 10; dan++) {
 					System.out.println(">> "+dan+"단 시작");
 					//첫번째 dan에서 통과하면 위 문구가 출력되고 아래 for문으로 이동함.
 				for(int gugu=2; gugu<10; gugu++ ){
