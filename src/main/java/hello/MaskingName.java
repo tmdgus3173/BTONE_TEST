@@ -35,7 +35,7 @@ public class MaskingName {
 
 
 		if(name.length() > 2){
-		//세글자 이상일때
+		//세글자 이상일때	
 			name = name.substring(0,1) + maskingName.replace(maskingName, masking) + name.substring(name.length()-1, name.length());
 		//이름 = 이름 첫글자 + 중간 이름을 maskingName -> making(★) + 끝이름(최대길이-1 에서 최대길이까지)
 		} 
