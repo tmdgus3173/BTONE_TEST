@@ -23,7 +23,7 @@ public class EX01 {
 			
 		}
 		
-		return null;
+		return alphabetList;
 	}
 	
 	
@@ -31,14 +31,6 @@ public class EX01 {
 	//1. 재할당
 	//int index=0;
 	
-		
-	
-	
-	
-	
-	
-	
-
 	public static void main(String[] args) {
 		EX01 item = new EX01(); {
 			//객체 생성 후 item이란 변수명 설정
