@@ -18,7 +18,7 @@ public class EX01 {
 			
 			
 			
-			System.out.println(index);
+			//System.out.println(index);
 			
 			
 		}
