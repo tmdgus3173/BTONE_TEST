@@ -18,24 +18,12 @@ public class Homework {
 //		ex) String goodsId = homework.getGoodsIdByName("상품명");
 //		List<GoodsVo> goodsList = homework.setBaseGoodsVo(); -- 활용할것
 		
-		GoodsVo goodsVo = new GoodsVo();
-		HomeworkVo homeworkVo = new HomeworkVo();
-		//먼저 생성자를 호출해주고
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		//-----------1,2번 문제가 연결 되어도 좋으나 연결 안되어도 됩니다.-------------------
+		
+		
+		
+		
+		
 		
 		
 		
@@ -52,9 +40,11 @@ public class Homework {
 		
 		List<GoodsVo> goodsList = homework.getGoodsList (goodsIds);
 		
+		System.out.println("goodsVo굿즈리스트" + goodsList);
+		
 		List<EventVo> eventInfoList = homework.getEventInfo();
-//		System.out.println("goodsVo :: " +goodsList);
-//		System.out.println("eventInfo :: " +eventInfoList);
+		//System.out.println("goodsVo :: " +goodsList);
+		//System.out.println("eventInfo :: " +eventInfoList);
 		
 		//A1,2,3 상품의 eventID A
 		//B1,2,3 상품의 eventID B
@@ -67,10 +57,27 @@ public class Homework {
 //		System.out.println("homeworkVo :: " +homeworkVo);
 	}
 	
+	
+	public String getGoodsIdName(String goodsName) {
+		String getGoodsName = "";
+		String getGoodsId = "";
+		//먼저 아이디와 이름의 변수를 만들어주고
 		
+		List<String>goodsIds = new ArrayList<String>();
+		List<GoodsVo>goodsList = getGoodsList(goodsIds);
+		//리스트 가져와주고
+		
+		for(GoodsVo goodsVo : goodsList) {
+			getGoodsName = goodsVo
+		}
+		
+		
+		
+		return getGoodsId;
+	}
 	
 	
-		
+	
 	
 	
 	//---------------------------로직 공부용----------------------------//
@@ -84,12 +91,6 @@ public class Homework {
 		Homework homework = new Homework();
 		//상품정보
 		List<GoodsVo> goodsList = homework.setBaseGoodsVo();
-		//GoodsVo 타입의 데이터를 담은 List
-		
-		//System.out.println(goodsList);
-		//굿즈리스트 내에 있는 정보들이 다 나옵니다.
-		
-		
 		
 		//상품 아이디값으로 검색기능
 		if(goodsIds != null && goodsIds.size() > 0) {
