@@ -68,7 +68,13 @@ public class Homework {
 		//리스트 가져와주고
 		
 		for(GoodsVo goodsVo : goodsList) {
-			getGoodsName = goodsVo
+			getGoodsName = goodsVo : goodsList){
+				getGoodsName = goodsVo.getGoodsName();
+				
+				if(getGoodsName.contains(goodsName)) {
+					
+				}
+			}
 		}
 		
 		
