@@ -23,12 +23,13 @@ public class Ex02 {
 		List<NameVo> nameVoList = new ArrayList<>();
 		
 		for(int i= 0; i < nameList.size(); i++) {
-			
+			//돌기 시작해서 이름 리스트의 길이만큼
 			NameVo nameVo = new NameVo();
+			//NameVo에 대해 nameVo라고 객체 생성을 하고
 			if(nameList.get(i).substring(0,1).equals("이")) {
-				
+			//만약 이름 섭스트링으로 첫글자가 이 일 경우	
 				nameVo.setName(nameList.get(i));
-				
+			//
 				nameVoList.add(nameVo);
 				
 			}
