@@ -62,7 +62,7 @@ public class MainBook {
 			
 			
 		case ("2"):
-			mainBook.selectBook(bookVo);
+//			mainBook.selectBook(bookVo);
 			
 			System.out.println("책 이름 : ");
 		
@@ -70,7 +70,9 @@ public class MainBook {
 			
 //			String bN
 			
-			System.out.print(mainBook.getBookNameByName("책이름을 입력했더니? -> " + bName));
+//			System.out.print(mainBook.getBookNameByName("책이름을 입력했더니? -> " + bName));
+			
+			
 			
 			
 			
@@ -143,58 +145,67 @@ public class MainBook {
 		
 		
 		//2번 도서 단건 조회
-		public List<BookVo> selectBook(List<BookVo> bookVoList) {
+		public List<BookVo> selectBook(String bookName) {
 			
+			List<BookVo> selectBookList = getBookInfo();
 			
+			for(BookVo bookVo : selectBookList) {
+				if(bookVo.getbTitle().indexOf(bookName) != -1 || bookVo.getbTitle().equals(bookName)) {
+					/*
+					 *확인 필요함.
+					 */
+					System.out.println("테스트 : " + bookVo);
+				}
+			}
+				return selectBookList;
+		}
 			
-//			
 //			//제목으로 검색 indexOf
 //			//단건 검색해서 도서의 다건이 검색되도록 (ex 네이버검색창)
 //			
-			MainBook mainbook = new MainBook();
+//			MainBook mainbook = new MainBook();
 //			
-			List<BookVo> selectBookInfo = mainbook.getBookInfo();
-			//셀렉북인포에 리턴시키자
-			
+//			List<BookVo> selectBookInfo = mainbook.getBookInfo();
+//			//셀렉북인포에 리턴시키자
+//			
 //			System.out.println(selectBookInfo);
-			//리스트를 제대로 불러왔는지 확인했구요
-			
-			for(BookVo bookVo : selectBookInfo) {
+//			//리스트를 제대로 불러왔는지 확인했구요
+//			
+//			for(BookVo bookVo : selectBookInfo) {
 //				System.out.println("test" + bookVo);
-				
-			}
+//				
+//			}
 			
 
-			return selectBookInfo;
-		}
+	
 
 		
-		public String getBookNameByName(String bTitle) {
-			
-			String getBookName = "";
-			String getBookList = "";
-			
-//			List<String> booksName = new ArrayList<String>();
-			List<BookVo> booksList = selectBook(getBookInfo());
-			
-			for(BookVo bookVo : booksList) {
-				//쫙 돌려서
-				getBookName = bookVo.getbTitle();
-				//getBookName에 이름만 반복된 값을 넣는다~
-				if(getBookName.contains(bTitle)) {
-					//만약 그 반복된 이름들이 bTitle에 있을경우
-					if(getBookName.equals(bTitle));
-					//그리고 그 이름들이랑 bTitle이랑 같을 경우 
-					getBookList = bookVo.getbTitle();
-					//그 제목을 getBookList에 넣는다.
-				}
-				
-			}
-				
-			System.out.println(getBookList);
-			return getBookList;
-		}
-		
+//		public String getBookNameByName(String bTitle) {
+//			
+//			String getBookName = "";
+//			String getBookList = "";
+//			
+////			List<String> booksName = new ArrayList<String>();
+////			List<BookVo> booksList = selectBook(getBookInfo());
+//			
+////			for(BookVo bookVo : booksList) {
+//				//쫙 돌려서
+//				getBookName = bookVo.getbTitle();
+//				//getBookName에 이름만 반복된 값을 넣는다~
+//				if(getBookName.contains(bTitle)) {
+//					//만약 그 반복된 이름들이 bTitle에 있을경우
+//					if(getBookName.equals(bTitle));
+//					//그리고 그 이름들이랑 bTitle이랑 같을 경우 
+//					getBookList = bookVo.getbTitle();
+//					//그 제목을 getBookList에 넣는다.
+//				}
+//				
+//			}
+//				
+//			System.out.println(getBookList);
+//			return getBookList;
+//		}
+//		
 		
 		
 		
@@ -227,7 +238,7 @@ public class MainBook {
 		return bookLVoList;
 	}
 	
-	
+	 
 	
 	
 	
