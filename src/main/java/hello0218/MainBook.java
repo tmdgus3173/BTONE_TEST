@@ -1,12 +1,15 @@
 package hello0218;
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 public class MainBook {
 	// 도서관 대여 프로그램
 	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
 		
-		MainBook mainBook = new MainBook();
+		
 		
 		//************************************************************
 		// BookVo = 도서에 대한 정보
@@ -25,24 +28,72 @@ public class MainBook {
 		
 		
 		// 값 셋팅 매서드
-		// 책 셋팅
+		// 책 셋팅		
+		
+		
+		
+		
+
+		MainBook mainBook = new MainBook();
+		
 		List<BookVo> bookVo = mainBook.getBookInfo();
 		
-		System.out.println(bookVo);
+		List<String> selectBookInfo = new ArrayList<>();
+		
+//		System.out.println("테스트 : " + selectBookInfo);
+		
 		
 		
 		// 기능을 사용하고자 번호
-		String num = "3";
+		
+//		System.out.print("1. 도서등록 2. 도서조회 3. 도서수정 ->");
+//		String num = scan.nextLine();
+//		
+		String num = "2";
 		
 		switch (num) {
 		case ("1"):
 			//도서 등록
 			mainBook.insertBook(bookVo);
+			
+			System.out.println("1의 경우");
+		
 			break;
 			
 			
 		case ("2"):
 			mainBook.selectBook(bookVo);
+			
+			System.out.println("책 이름 : ");
+		
+			String bName = scan.nextLine();
+			
+//			String bN
+			
+			System.out.print(mainBook.getBookNameByName("책이름을 입력했더니? -> " + bName));
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			 
+			
+			
+		
+		
+		
+			//제목으로 검색 indexOf
+			//단건 검색해서 도서의 다건이 검색되도록 (ex 네이버검색창)
+		
+			//if String 이 제목일경우
+			//그거에 해당하는 모든 정보가 출력된다.
+		
+		
 			break;
 			
 		case ("3"):
@@ -52,6 +103,10 @@ public class MainBook {
 			BookVo updateBookVo = new BookVo();
 		
 			infoVo = mainBook.updateBook(updateBookVo);
+			
+			System.out.println("3");
+			
+			
 			break;	
 			
 	
@@ -61,23 +116,90 @@ public class MainBook {
 	
 	}
 	
+	
+	
+	
+	
+	
 		//1번 도서 등록
-		public void insertBook(List<BookVo> bookVoList) {
+		public List<BookVo> insertBook(List<BookVo> bookVoList) {
+			
+			
 			
 //			1) 등록 단건, 다건 가능
 //			2) bNo가 중복일시 에러 처리 (에러 메세지 "중복된 bNo 가 존재합니다.")
 //			3) 현재 1,2,3 의 bNo 가 존재하여 bNo 미 입력시 4로 저장
+			MainBook mainBook = new MainBook();
+			
+			List<BookVo> insertBookList = mainBook.setBaseBookVo(getBookInfo());
+			
+			
+			
+			
+			
+			
+			return insertBookList;
 		}
 		
+		
 		//2번 도서 단건 조회
-		public void selectBook(List<BookVo> bookVoList) {
-			
-			//제목으로 검색 indexOf
-			//단건 검색해서 도서의 다건이 검색되도록 (ex 네이버검색창)
+		public List<BookVo> selectBook(List<BookVo> bookVoList) {
 			
 			
 			
+//			
+//			//제목으로 검색 indexOf
+//			//단건 검색해서 도서의 다건이 검색되도록 (ex 네이버검색창)
+//			
+			MainBook mainbook = new MainBook();
+//			
+			List<BookVo> selectBookInfo = mainbook.getBookInfo();
+			//셀렉북인포에 리턴시키자
+			
+//			System.out.println(selectBookInfo);
+			//리스트를 제대로 불러왔는지 확인했구요
+			
+			for(BookVo bookVo : selectBookInfo) {
+//				System.out.println("test" + bookVo);
+				
+			}
+			
+
+			return selectBookInfo;
 		}
+
+		
+		public String getBookNameByName(String bTitle) {
+			
+			String getBookName = "";
+			String getBookList = "";
+			
+//			List<String> booksName = new ArrayList<String>();
+			List<BookVo> booksList = selectBook(getBookInfo());
+			
+			for(BookVo bookVo : booksList) {
+				//쫙 돌려서
+				getBookName = bookVo.getbTitle();
+				//getBookName에 이름만 반복된 값을 넣는다~
+				if(getBookName.contains(bTitle)) {
+					//만약 그 반복된 이름들이 bTitle에 있을경우
+					if(getBookName.equals(bTitle));
+					//그리고 그 이름들이랑 bTitle이랑 같을 경우 
+					getBookList = bookVo.getbTitle();
+					//그 제목을 getBookList에 넣는다.
+				}
+				
+			}
+				
+			System.out.println(getBookList);
+			return getBookList;
+		}
+		
+		
+		
+		
+		
+		
 		
 		//3번 도서 정보 업데이트
 		public InfoVo updateBook(BookVo bookVo) {
@@ -86,6 +208,9 @@ public class MainBook {
 			return null;
 		}
 	
+		
+		
+		
 	// 책 정보 리스트
 	public List<BookVo> getBookInfo(){
 		
@@ -95,13 +220,37 @@ public class MainBook {
 		
 		mainBook.setBaseBookVo(bookLVoList);
 		
+//		System.out.println("bookLVoList : " + bookLVoList);
+		
+		
+		
 		return bookLVoList;
 	}
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//북vo 기본정보 셋팅
-	public void setBaseBookVo (List<BookVo> bookLVoList) {
+	public List<BookVo> setBaseBookVo (List<BookVo> bookLVoList) {
 		BookVo bookVo = new BookVo();
 		
 		bookVo.setbNo("1");
@@ -127,6 +276,9 @@ public class MainBook {
 		bookBVo.setbTitle("토지");
 		bookBVo.setbGenre("현대소설");
 		bookLVoList.add(bookBVo);
+		
+		
+		return bookLVoList;
 		
 	}
 }

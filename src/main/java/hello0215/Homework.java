@@ -33,8 +33,8 @@ public class Homework {
         Homework homework = new Homework();
 
         List<String> goodsIds = new ArrayList<>();
-
-
+        //지금 여기엔 아무것도 담겨있지않아.
+        
         // 상품 아이디값을 추가 하면 상품이 조회된다.
         /*----- // ex -------*/
         //System.out.println("----전체 물품 리스트----");
@@ -43,6 +43,7 @@ public class Homework {
        // List<GoodsVo> goodsList = homework.getGoodsList(goodsIds);
         //System.out.println("goodsList = " + goodsList);
         System.out.println("-----------------1번-------------");
+        
         System.out.println(homework.getGoodsIdByName("java_book"));
         System.out.println(homework.getGoodsIdByName("BtOne"));
         System.out.println(homework.getGoodsIdByName("springMaster"));
@@ -104,13 +105,12 @@ public class Homework {
 
         for (GoodsVo goodsVo : goodsList) {
             // 향상된 for문으로 리스트를 반복시켜 쭉 가지고온다.
-            // System.out.println("굿즈VO" + goodsVo);
+//             System.out.println("굿즈VO" + goodsVo);
             getGoodsName = goodsVo.getGoodsName();
 
             if (getGoodsName.contains(goodsName)) {
                 // 만약 굿즈네임이라는게 있다면
-                if (getGoodsName.equals(goodsName))
-                    ;
+                if (getGoodsName.equals(goodsName));
                 // 그리고 그 굿즈네임중 내가 입력한것과 같은 이름이 있다면
 
                 getGoodsId = goodsVo.getGoodsId();
@@ -121,30 +121,30 @@ public class Homework {
         // 아이디값을 리턴한다.
     }
     
-    public String searchGoodsVersion1 (String goodsName){
-		Homework homework = new Homework();
-		
-		List<String> goodsIds = new ArrayList<>();
-		List<GoodsVo> goodsList = homework.getGoodsList(goodsIds);
-		
-		//1번
-		GoodsVo searchGoodsVo = Optional.ofNullable(goodsList).orElseGet(ArrayList::new).stream()
-//		.filter(item -> item.getGoodsName().equals(goodsName))
-		.filter(item -> item.getGoodsName().contains(goodsName))
-		.findFirst()
-		.get();
-		
-		//2번
-		String goodsId = "";
-		for(GoodsVo goodsVo : goodsList) {
-			if(goodsName.equalsIgnoreCase(goodsVo.getGoodsName())) {
-				goodsId = goodsVo.getGoodsId();
-				break;
-			}
-		}
-		
-		return searchGoodsVo.getGoodsId();
-	}
+//    public String searchGoodsVersion1 (String goodsName){
+//		Homework homework = new Homework();
+//		
+//		List<String> goodsIds = new ArrayList<>();
+//		List<GoodsVo> goodsList = homework.getGoodsList(goodsIds);
+//		
+//		//1번
+//		GoodsVo searchGoodsVo = Optional.ofNullable(goodsList).orElseGet(ArrayList::new).stream()
+////		.filter(item -> item.getGoodsName().equals(goodsName))
+//		.filter(item -> item.getGoodsName().contains(goodsName))
+//		.findFirst()
+//		.get();
+//		
+//		//2번
+//		String goodsId = "";
+//		for(GoodsVo goodsVo : goodsList) {
+//			if(goodsName.equalsIgnoreCase(goodsVo.getGoodsName())) {
+//				goodsId = goodsVo.getGoodsId();
+//				break;
+//			}
+//		}
+//		
+//		return searchGoodsVo.getGoodsId();
+//	}
     
     
 //    List<GoodsVo> temp3 = Optional.ofNullable(goodsVoList).orElseGet(ArrayList::new).stream()
@@ -182,7 +182,9 @@ public class Homework {
 
         // 상품정보
         List<GoodsVo> goodsList = homework.setBaseGoodsVo();
-
+        
+//        System.out.println("승현테스트 : " + goodsList);
+        	
         // 상품 아이디값으로 검색기능
         if (goodsIds != null && goodsIds.size() > 0) {
             List<GoodsVo> selGoodsList = new ArrayList<>();
@@ -196,9 +198,12 @@ public class Homework {
                     selGoodsList.add(selGoodsVo);
                 }
             }
+//            System.out.println("승현테스트 : " + selGoodsList);
             return selGoodsList;
+            
+            
         }
-
+//        System.out.println("승현테스트1 : " + goodsList);
         return goodsList;
     }
 

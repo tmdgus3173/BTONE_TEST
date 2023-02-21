@@ -34,7 +34,7 @@ public class Ex01 {
 			//이름 앞글자만 따오고
 			if(name.equals("이")) {
 			//만약 그 이름 앞글자가 "이" 일경우
-			nameVo.setName(name);
+//			nameVo.setName(name);
 			
 			//studentVo 리스트에 넣어야한다.
 			
