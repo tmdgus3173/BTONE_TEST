@@ -49,14 +49,17 @@ public class MainBook {
 //		System.out.print("1. 도서등록 2. 도서조회 3. 도서수정 ->");
 //		String num = scan.nextLine();
 //		
-		String num = "2";
+		String num = "1";
 		
 		switch (num) {
 		case ("1"):
+			System.out.println("1을 입력하셨습니다.");
 			//도서 등록
 			mainBook.insertBook(bookVo);
+		
 			
-			System.out.println("1의 경우");
+					
+			
 		
 			break;
 			
@@ -64,9 +67,9 @@ public class MainBook {
 		case ("2"):
 //			mainBook.selectBook(bookVo);
 			
-			System.out.println("책 이름 : ");
+//			System.out.println("책 이름 : ");
 		
-			String bName = scan.nextLine();
+//			String bName = scan.nextLine();
 			
 //			String bN
 			
@@ -124,23 +127,91 @@ public class MainBook {
 	
 	
 		//1번 도서 등록
-		public List<BookVo> insertBook(List<BookVo> bookVoList) {
+		public void insertBook(List<BookVo> bookVoList) {
 			
-			
+//			, InfoVo infoVo
 			
 //			1) 등록 단건, 다건 가능
 //			2) bNo가 중복일시 에러 처리 (에러 메세지 "중복된 bNo 가 존재합니다.")
 //			3) 현재 1,2,3 의 bNo 가 존재하여 bNo 미 입력시 4로 저장
-			MainBook mainBook = new MainBook();
-			
-			List<BookVo> insertBookList = mainBook.setBaseBookVo(getBookInfo());
-			
-			
-			
-			
+//			MainBook mainBook = new MainBook();
+			List<BookVo> booksList = getBookInfo();
+			//책 목록을 쫙 불러서
+//			System.out.println("책 목록 : " + booksList);
+//			System.out.println("사이즈 : " + booksList.size());
 			
 			
-			return insertBookList;
+			List<BookVo> insertBookList = new ArrayList<BookVo>();
+			//이게 이제 책을 등록하는 새로운 리스트이빈다.
+			insertBookList.add(new BookVo("4", "헌터X헌터", "토가시 요시히로", "만화", "Y"));
+//			insertBookList.add(new BookVo("4", "귀멸의칼날", "고토게 코요하루", "만화", "Y"));
+		
+			//책 등록 
+			String duplicationNo = "";
+			//중복인 번호를 지정 아래 조건문에 넣으려구요.
+			
+			for(BookVo insertList : insertBookList) {
+				//추가된 책들을 불러온다.
+				for(BookVo bookVo : booksList) {
+					//기존에 있던 책 목록을 가지고온다.
+					int lastListSize = booksList.size();
+					// 리스트 목록이 몇개인지 찾는다. 이렇게 하면 값이 3이 나온다. 왜냐 총 리스트 안에 책은 3권 들어가 있기 때문이다.
+						for(int i = 0; i < lastListSize; i++) {
+							//1~3까지 쏵 돌리면서 -> 현재 들어가 있는 책의 갯수만큼 반복시키켠서
+							
+							//일단 책 번호에 대한 변수를 지정해줘야겠지? 그리고 그것은 
+							
+							if(bookVo.getbNo().equals(insertList.getbNo())) {
+								//만약 기존 책 No와 새로 넣은 책의 No가 같다면?
+								duplicationNo = bookVo.getbNo();
+								//중복인 번호를 bookVo에서 가지고오나 insertList에서 가지고오나 같다.
+								
+								
+								System.out.println("중복 번호 : " + duplicationNo);
+								System.out.println("책 번호 중복입니다.");
+								return;
+								//중복이 나올 경우 의미없이 돌지않고 바로 빠져나올 수 있게 했다.
+							}
+						
+					}
+				}
+			if(!duplicationNo.equals(insertList.getbNo()) && !insertList.getbNo().equals("")) {
+				//만약 중복인 번호와 등록하는 책번호가 같이 않고 && 등록하는 책번호가 빈칸이 아닐경우에 넘긴다.
+				
+//				int listSize = booksList.size() -1;
+//				//여기서 책의 갯수를 측정해서~ 변수로 지정해 준다.
+//				
+//				for(int j = 0; j < listSize; j++) {
+//					System.out.println("이름만 : " + booksList.get(j).getbNo());
+//				}
+//				
+//				
+//				String lastBNo = booksList.get(listSize).getbNo();
+//				
+//				System.out.println("마지막값 : " + lastBNo);
+				
+				BookVo bookNo = bookVoList.get(lastListSize);
+				
+				
+				
+				
+				booksList.addAll(insertBookList);
+				//북 리스트에 인서트북리스트를 전부 이어붙인다
+				
+				System.out.println("등록 후 책 리스트");
+//				System.out.println(booksList);
+				//최종 출력
+				
+				
+			} else {
+				System.out.println("책 번호가 비어있습니다.");
+			}
+			
+	} // 1번 for의 끝
+			
+			
+	
+			
 		}
 		
 		

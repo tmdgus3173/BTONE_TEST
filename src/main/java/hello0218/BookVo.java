@@ -13,6 +13,18 @@ public class BookVo {
     //대출가능여부
     private String bAvailable = "Y";
     
+    public BookVo() {
+    	
+    }
+	
+	public BookVo(String bNo, String bTitle, String bAuthor, String bGenre, String bAvailable) {
+		super();
+		this.bNo = bNo;
+		this.bTitle = bTitle;
+		this.bAuthor = bAuthor;
+		this.bGenre = bGenre;
+		this.bAvailable = bAvailable;
+	}
 	public String getbNo() {
 		return bNo;
 	}
@@ -49,7 +61,7 @@ public class BookVo {
 				+ ", bAvailable=" + bAvailable + ", getbNo()=" + getbNo() + ", getbTitle()=" + getbTitle()
 				+ ", getbAuthor()=" + getbAuthor() + ", getbGenre()=" + getbGenre() + ", getbAvailable()="
 				+ getbAvailable() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ super.toString() + "\n" + "]";
 	}
     
 }
