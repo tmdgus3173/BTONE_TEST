@@ -42,7 +42,7 @@ public class MainBook {
 //		System.out.print("1. 도서등록 2. 도서조회 3. 도서수정 ->");
 //		String num = scan.nextLine();
 //		
-		String num = "1";
+		String num = "2";
 
 		switch (num) {
 		case ("1"):
@@ -110,7 +110,7 @@ public class MainBook {
 		for (BookVo insertList : insertBookList) {
 			// 추가된 책들을 불러온다.		
 			int lastListSize = booksList.size()-1;
-//			System.out.println("라리사 : " + lastListSize);
+//			System.out.println("lastListSize : " + lastListSize);
 			// 리스트 목록이 몇개인지 찾는다. 
 			for (BookVo bookVo : booksList) {
 				// 기존에 있던 책 목록을 가지고온다.
@@ -153,9 +153,10 @@ public class MainBook {
 					
 					insertList.setbNo(newBookNo);
 					// 등록한 책의 리스트에서 책 번호를 위에서 정의한 newBookNo로 재정의해준다.
-
-					// 변수에 넘버의 MAX값을 가지고 와서 +1을 시키는 것을 지정해주고
-					// 그 변수를 setNo(변수명) 으로 지정해주면 No가 자동으로 올라가는 것을 설정해줄 수 있지않을까?
+					
+					
+					// 만약 변수에 넘버의 MAX값을 가지고 와서 +1을 시키는 것을 지정해주고
+					// 그 변수를 setNo(변수명) + 1 로 지정해주면 No가 자동으로 올라가는 것을 설정해줄 수 있지않을까?
 					// 허나 이건 좀 천천히 생각해보자.
 
 					booksList.addAll(insertBookList);
@@ -187,6 +188,7 @@ public class MainBook {
 			// 책들의 정보를 쫘라라라라ㅏ 가져와주고요.
 			if (bookVo.getbTitle().indexOf(bookName) != -1) {
 				// 이름이 완전히 일치하고 && 한글자라도 포함되어있으면 검색이 되는 if문을 만든다.
+				// 문자열이 없을때 -1 , -1이 아닐때니까 책이 있을때겠죠?
 				System.out.println("2번 책검색 결과 : " + bookVo);
 			}
 		}
